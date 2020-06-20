@@ -13,7 +13,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("home page" + widget.selectedTab.toString()),
+      backgroundColor: Colors.blue[100],
+      body: Center(
+        child: Text("home page " + widget.selectedTab.toString()),
+      ),
     );
   }
 }

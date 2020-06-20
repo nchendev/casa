@@ -13,7 +13,10 @@ class _FriendsState extends State<Friends> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("friends page" + widget.selectedTab.toString()),
+      backgroundColor: Colors.green[100],
+      body: Center(
+        child: Text("friends page " + widget.selectedTab.toString()),
+      ),
     );
   }
 }

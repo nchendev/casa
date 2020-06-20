@@ -13,7 +13,10 @@ class _SelfState extends State<Self> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("self page" + widget.selectedTab.toString()),
+      backgroundColor: Colors.orange[100],
+      body: Center(
+        child: Text("self page " + widget.selectedTab.toString()),
+      ),
     );
   }
 }

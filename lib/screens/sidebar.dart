@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:lowkey/screens/shop.dart';
+
 // temporary constant lists until app works
 final List homeModules = [
   {"title": "chores", "path": ""},
@@ -17,8 +19,10 @@ final List friendsModules = [
 ];
 
 class Sidebar extends StatefulWidget {
-  Sidebar({Key key, this.title}) : super(key: key);
   final String title;
+  final PageController pageController;
+  Sidebar({Key key, @required this.title, @required this.pageController})
+      : super(key: key);
   @override
   _SidebarState createState() => _SidebarState();
 }
@@ -87,7 +91,7 @@ class _SidebarState extends State<Sidebar> {
               children: <Widget>[
                 DrawerHeader(
                   child: Text(
-                    'lowkey',
+                    widget.title,
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -132,7 +136,14 @@ class _SidebarState extends State<Sidebar> {
                 _buildTile(
                   icon: Icons.shopping_cart,
                   tileTitle: 'Get more Modules!',
-                  onTap: () => {}, // navigator routing
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Shop(),
+                      ),
+                    ),
+                  }, // navigator routing
                 ),
                 _buildTile(
                   icon: Icons.info,
