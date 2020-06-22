@@ -7,11 +7,11 @@ final List homeModules = [
   {"title": "chores", "path": ""},
   {"title": "shared expenses", "path": ""}
 ];
-final List selfModules = [
+final List personalModules = [
   {"title": "workout", "path": ""},
   {"title": "cardio", "path": ""}
 ];
-final List friendsModules = [
+final List socialModules = [
   {"title": "leaderboards", "path": ""},
   {"title": "chat", "path": ""},
   {"title": "leaderboards", "path": ""},
@@ -114,17 +114,17 @@ class _SidebarState extends State<Sidebar> {
                     icon: Icons.home,
                     tileTitle: "Home Modules",
                     modules: homeModules),
-                // Self Widgets
+                // personal Widgets
                 _buildExpansionTile(
                     icon: Icons.person,
-                    tileTitle: "Self Modules",
-                    modules: selfModules),
+                    tileTitle: "Personal Modules",
+                    modules: personalModules),
 
-                // Friends Widgets
+                // social Widgets
                 _buildExpansionTile(
                     icon: Icons.people,
-                    tileTitle: "Friends Modules",
-                    modules: friendsModules),
+                    tileTitle: "Social Modules",
+                    modules: socialModules),
               ],
             ),
           ),

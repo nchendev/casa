@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:lowkey/screens/welcome.dart';
-import 'package:lowkey/screens/friends.dart';
+import 'package:lowkey/screens/social.dart';
 import 'package:lowkey/screens/home.dart';
-import 'package:lowkey/screens/self.dart';
+import 'package:lowkey/screens/personal.dart';
 import 'package:lowkey/screens/sidebar.dart';
 import 'package:lowkey/screens/shop.dart';
 import 'package:lowkey/screens/about.dart';
@@ -30,7 +30,7 @@ class Router extends StatefulWidget {
 class _RouterState extends State<Router> {
   // shared variables
   String _title = "Home";
-  List _titles = ["Home", "Self", "Friends"];
+  List _titles = ["Home", "personal", "social"];
 
   // pageview body variables
   int _selectedPageviewIndex = 0;
@@ -51,10 +51,10 @@ class _RouterState extends State<Router> {
             Home(
               selectedTab: _selectedPageviewIndex,
             ),
-            Self(
+            personal(
               selectedTab: _selectedPageviewIndex,
             ),
-            Friends(
+            social(
               selectedTab: _selectedPageviewIndex,
             ),
           ],
@@ -116,6 +116,7 @@ class _RouterState extends State<Router> {
           _selectedBody = tileTitle;
           _title = tileTitle;
         });
+        Navigator.pop(context);
       }, // navigator routi,
     );
   }
@@ -177,17 +178,17 @@ class _RouterState extends State<Router> {
                     icon: Icons.home,
                     tileTitle: "Home Modules",
                     modules: homeModules),
-                // Self Widgets
+                // personal Widgets
                 _buildExpansionTile(
                     icon: Icons.person,
-                    tileTitle: "Self Modules",
-                    modules: selfModules),
+                    tileTitle: "personal Modules",
+                    modules: personalModules),
 
-                // Friends Widgets
+                // social Widgets
                 _buildExpansionTile(
                     icon: Icons.people,
-                    tileTitle: "Friends Modules",
-                    modules: friendsModules),
+                    tileTitle: "social Modules",
+                    modules: socialModules),
               ],
             ),
           ),
@@ -225,11 +226,11 @@ class _RouterState extends State<Router> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          title: Text('Self'),
+          title: Text('personal'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.people),
-          title: Text('Friends'),
+          title: Text('social'),
         )
       ],
       onTap: _onTapBottomNavbar,

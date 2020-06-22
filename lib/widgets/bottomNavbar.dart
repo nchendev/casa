@@ -17,11 +17,11 @@ class _BottomNavbarState extends State<BottomNavbar> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          title: Text('Self'),
+          title: Text('personal'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.people),
-          title: Text('Friends'),
+          title: Text('social'),
         )
       ],
     );

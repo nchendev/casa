@@ -1,0 +1,34 @@
+{
+  "home": [
+    {
+      "name": "chores",
+      "description": "chores module",
+      "icon": "report_problem"
+    },
+    {
+      "name": "shared expenses",
+      "description": "shared expenses module",
+      "icon": "report_problem"
+    }
+  ],
+  "personal": [
+    {
+      "name": "workout",
+      "description": "workout module",
+      "icon": "report_problem"
+    },
+    {
+      "name": "cardio",
+      "description": "cardio module",
+      "icon": "report_problem"
+    }
+  ],
+  "social": [
+    {
+      "name": "leaderboards",
+      "description": "leaderboards module",
+      "icon": "report_problem"
+    },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" }
+  ]
+}
