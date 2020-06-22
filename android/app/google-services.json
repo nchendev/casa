@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1037942478410",
+    "firebase_url": "https://lowkey-4b5f8.firebaseio.com",
+    "project_id": "lowkey-4b5f8",
+    "storage_bucket": "lowkey-4b5f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037942478410:android:947cd2c40b349e4ab9b8b3",
+        "android_client_info": {
+          "package_name": "dev.nchen.casa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037942478410-vq47tnb74dgivo692ji3tsb5tlojbdl0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.nchen.casa",
+            "certificate_hash": "7a20a03e178c86a4debf5921a2c63975cff4f914"
+          }
+        },
+        {
+          "client_id": "1037942478410-qt6eqo5ufo5ruvstvr1u9rsunhsit392.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZGu88JAT0sQKUFeSTQGYg8vlA9guXzKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037942478410-qt6eqo5ufo5ruvstvr1u9rsunhsit392.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

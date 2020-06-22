@@ -1,4 +1,4 @@
-package com.example.lowkey
+package dev.nchen.casa
 
 import io.flutter.embedding.android.FlutterActivity
 
