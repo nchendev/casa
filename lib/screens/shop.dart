@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:lowkey/backend/local_api.dart';
-import 'package:lowkey/models/modules.dart';
+import 'package:lowkey/models/module.dart';
 import 'package:lowkey/screens/sidebar.dart';
 
 class Shop extends StatefulWidget {
@@ -13,45 +13,29 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
-  List<ShopModule> _homeShopModules = [];
-  List<ShopModule> _personalShopModules = [];
-  List<ShopModule> _socialShopModules = [];
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   Future<List<ShopModule>> _buildShopModulesList(String type) async {
+    List<ShopModule> typedShopModules = [];
+
     Map<String, dynamic> jsonData = await LocalAPI()
         .parseJsonFromAssets('assets/data/availablemodules.json');
 
     for (var moduledata in jsonData[type]) {
-      ShopModule module = ShopModule(
-          moduledata['name'], moduledata['description'], moduledata['icon']);
-      switch (type) {
-        case "home":
-          _homeShopModules.add(module);
-          print("added to home");
-          break;
-        case "personal":
-          _personalShopModules.add(module);
-          print("added to personal");
-          break;
-        case "social":
-          _socialShopModules.add(module);
-          print("added to social");
-          break;
-      }
+      ShopModule module = ShopModule.fromJson(moduledata);
+      typedShopModules.add(module);
     }
-    switch (type) {
-      case "home":
-        return _homeShopModules;
-      case "personal":
-        return _personalShopModules;
-      case "social":
-        return _socialShopModules;
-    }
+    return typedShopModules;
+  }
+
+  Future<List<ShopModule>> _homeShopModules;
+  Future<List<ShopModule>> _personalShopModules;
+  Future<List<ShopModule>> _socialShopModules;
+
+  @override
+  void initState() {
+    super.initState();
+    _homeShopModules = _buildShopModulesList("home");
+    _personalShopModules = _buildShopModulesList("personal");
+    _socialShopModules = _buildShopModulesList("social");
   }
 
   Widget _buildShopModule(String name, String description, String icon) {
@@ -61,14 +45,12 @@ class _ShopState extends State<Shop> {
     };
 
     return ListTile(
-      title: Row(
-        children: <Widget>[
-          Icon(myIcons[icon]),
-          Padding(
-            padding: EdgeInsets.only(left: 8.0),
-            child: Text(name),
-          )
-        ],
+      leading: Icon(myIcons[icon]),
+      title: Text(name),
+      subtitle: Text(description),
+      trailing: RaisedButton(
+        onPressed: () {},
+        child: Text('install'),
       ),
     );
   }
@@ -83,12 +65,24 @@ class _ShopState extends State<Shop> {
   }
 
   Widget _buildTabBarView(String type) {
+    Future<List<ShopModule>> _targetShopModules;
+    switch (type) {
+      case "home":
+        _targetShopModules = _homeShopModules;
+        break;
+      case "personal":
+        _targetShopModules = _personalShopModules;
+        break;
+      case "social":
+        _targetShopModules = _socialShopModules;
+        break;
+    }
     return Container(
         child: Column(
       children: <Widget>[
         _buildSearchBar(type),
         FutureBuilder(
-          future: _buildShopModulesList(type),
+          future: _targetShopModules,
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.data != null) {
               return Expanded(

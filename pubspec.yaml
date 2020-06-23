@@ -78,3 +78,4 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/data/availablemodules.json
+    - assets/data/roomdata.json

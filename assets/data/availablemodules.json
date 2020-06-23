@@ -29,6 +29,15 @@
       "description": "leaderboards module",
       "icon": "report_problem"
     },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
+    { "name": "chat", "description": "chat module", "icon": "report_problem" },
     { "name": "chat", "description": "chat module", "icon": "report_problem" }
   ]
 }

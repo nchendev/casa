@@ -1,0 +1,10 @@
+{
+  "roomName": "Century 2.0",
+  "roomLocation": "",
+  "members": [
+    { "name": "Allen Zou", "locationStatus": "home" },
+    { "name": "Leon Hua", "locationStatus": "away" },
+    { "name": "Rohan Palla", "locationStatus": "disconnected" }
+  ],
+  "modules": []
+}
