@@ -28,15 +28,17 @@ class Router extends StatefulWidget {
 }
 
 class _RouterState extends State<Router> {
+  PageController _pageController;
+  int _selectedPageviewIndex = 0;
   // shared variables
   String _title = "Home";
   List _titles = ["Home", "personal", "social"];
 
-  // pageview body variables
-  int _selectedPageviewIndex = 0;
-  PageController _pageController = PageController();
-
-  // misc screens body variables
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
 
   // pageview body widget
   String _selectedBody = "main";
@@ -84,7 +86,13 @@ class _RouterState extends State<Router> {
     setState(() {
       _title = _titles[_selectedPageviewIndex];
     });
-    _pageController.jumpToPage(value);
+    if (_pageController.hasClients) {
+      _pageController.animateToPage(
+        value,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 
   List<Widget> _buildModules(List modules) {
@@ -242,7 +250,10 @@ class _RouterState extends State<Router> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(_title),
+          centerTitle: true,
+          title: Text(
+            _title,
+          ),
         ),
         body: _buildBody(),
         drawer: _buildDrawer(),

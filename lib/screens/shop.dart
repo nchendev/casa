@@ -4,6 +4,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:lowkey/backend/local_api.dart';
 import 'package:lowkey/models/module.dart';
 import 'package:lowkey/screens/sidebar.dart';
+import 'package:lowkey/util/stringmap.dart';
 
 class Shop extends StatefulWidget {
   Shop({Key key}) : super(key: key);
@@ -40,9 +41,7 @@ class _ShopState extends State<Shop> {
 
   Widget _buildShopModule(String name, String description, String icon) {
     // determine icon
-    const myIcons = <String, IconData>{
-      'report_problem': Icons.report_problem,
-    };
+    var myIcons = StringMap().shopModuleIcons();
 
     return ListTile(
       leading: Icon(myIcons[icon]),

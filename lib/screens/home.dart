@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:lowkey/models/module.dart';
 import 'package:lowkey/models/room.dart';
 import 'package:lowkey/backend/local_api.dart';
+import 'package:lowkey/util/stringmap.dart';
 
 class Home extends StatefulWidget {
   final int selectedTab;
@@ -13,6 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // builds room info
   Future<List<Roommate>> _buildRoomInfo() async {
     List<Roommate> members = [];
     Map<String, dynamic> jsonData =
@@ -25,8 +27,10 @@ class _HomeState extends State<Home> {
     return members;
   }
 
+  // state declaration
   Future<List<Roommate>> _members;
 
+  // state init
   @override
   void initState() {
     super.initState();
@@ -47,13 +51,9 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _buildRoomCard(name, locationStatus) {
+  Widget _buildRoommateCard(name, locationStatus) {
     // determine color
-    var myColors = <String, Color>{
-      'home': Colors.green[300],
-      'away': Colors.orange[300],
-      'disconnected': Colors.red[300],
-    };
+    var myColors = StringMap().locationStatusColors();
     var myColor = myColors[locationStatus];
 
     return ListTile(
@@ -68,7 +68,22 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _buildModulesCards() {
+  List _buildRoommatesList(AsyncSnapshot snapshot) {
+    List<Widget> listItems = List();
+
+    for (int i = 0; i < snapshot.data.length; i++) {
+      listItems.add(
+        _buildRoommateCard(
+          snapshot.data[i].name,
+          snapshot.data[i].locationStatus,
+        ),
+      );
+    }
+
+    return listItems;
+  }
+
+  Widget _buildModulesList() {
     return Column(
       children: <Widget>[
         // list of modules cards
@@ -89,21 +104,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  List _buildList(AsyncSnapshot snapshot) {
-    List<Widget> listItems = List();
-
-    for (int i = 0; i < snapshot.data.length; i++) {
-      listItems.add(
-        _buildRoomCard(
-          snapshot.data[i].name,
-          snapshot.data[i].locationStatus,
-        ),
-      );
-    }
-
-    return listItems;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,10 +115,10 @@ class _HomeState extends State<Home> {
           Widget roommatesSliver;
 
           // once data is received
-          if (snapshot.hasData) {
+          if (snapshot.data != null) {
             roommatesSliver = SliverList(
               delegate: SliverChildListDelegate(
-                _buildList(snapshot),
+                _buildRoommatesList(snapshot),
               ),
             );
           }
@@ -157,7 +157,7 @@ class _HomeState extends State<Home> {
               // beginning of modules slivers
               SliverToBoxAdapter(
                 child: SizedBox(
-                  child: _buildModulesCards(),
+                  child: _buildModulesList(),
                 ),
               ),
             ],
