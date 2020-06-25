@@ -10,7 +10,7 @@ class StringMap {
       };
   // shop module icons
   // shop.dart
-  Map<String, IconData> shopModuleIcons() => {
+  Map<String, IconData> ModuleInfoIcons() => {
         'report_problem': Icons.report_problem,
       };
 }

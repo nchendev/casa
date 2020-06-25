@@ -14,34 +14,34 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
-  Future<List<ShopModule>> _buildShopModulesList(String type) async {
-    List<ShopModule> typedShopModules = [];
+  Future<List<ModuleInfo>> _buildModuleInfosList(String type) async {
+    List<ModuleInfo> typedModuleInfos = [];
 
     Map<String, dynamic> jsonData = await LocalAPI()
         .parseJsonFromAssets('assets/data/availablemodules.json');
 
     for (var moduledata in jsonData[type]) {
-      ShopModule module = ShopModule.fromJson(moduledata);
-      typedShopModules.add(module);
+      ModuleInfo module = ModuleInfo.fromJson(moduledata);
+      typedModuleInfos.add(module);
     }
-    return typedShopModules;
+    return typedModuleInfos;
   }
 
-  Future<List<ShopModule>> _homeShopModules;
-  Future<List<ShopModule>> _personalShopModules;
-  Future<List<ShopModule>> _socialShopModules;
+  Future<List<ModuleInfo>> _homeModuleInfos;
+  Future<List<ModuleInfo>> _personalModuleInfos;
+  Future<List<ModuleInfo>> _socialModuleInfos;
 
   @override
   void initState() {
     super.initState();
-    _homeShopModules = _buildShopModulesList("home");
-    _personalShopModules = _buildShopModulesList("personal");
-    _socialShopModules = _buildShopModulesList("social");
+    _homeModuleInfos = _buildModuleInfosList("home");
+    _personalModuleInfos = _buildModuleInfosList("personal");
+    _socialModuleInfos = _buildModuleInfosList("social");
   }
 
-  Widget _buildShopModule(String name, String description, String icon) {
+  Widget _buildModuleInfo(String name, String description, String icon) {
     // determine icon
-    var myIcons = StringMap().shopModuleIcons();
+    var myIcons = StringMap().ModuleInfoIcons();
 
     return ListTile(
       leading: Icon(myIcons[icon]),
@@ -64,16 +64,16 @@ class _ShopState extends State<Shop> {
   }
 
   Widget _buildTabBarView(String type) {
-    Future<List<ShopModule>> _targetShopModules;
+    Future<List<ModuleInfo>> _targetModuleInfos;
     switch (type) {
       case "home":
-        _targetShopModules = _homeShopModules;
+        _targetModuleInfos = _homeModuleInfos;
         break;
       case "personal":
-        _targetShopModules = _personalShopModules;
+        _targetModuleInfos = _personalModuleInfos;
         break;
       case "social":
-        _targetShopModules = _socialShopModules;
+        _targetModuleInfos = _socialModuleInfos;
         break;
     }
     return Container(
@@ -81,7 +81,7 @@ class _ShopState extends State<Shop> {
       children: <Widget>[
         _buildSearchBar(type),
         FutureBuilder(
-          future: _targetShopModules,
+          future: _targetModuleInfos,
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.data != null) {
               return Expanded(
@@ -89,7 +89,7 @@ class _ShopState extends State<Shop> {
                   padding: EdgeInsets.zero,
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return _buildShopModule(
+                    return _buildModuleInfo(
                         snapshot.data[index].name,
                         snapshot.data[index].description,
                         snapshot.data[index].icon);

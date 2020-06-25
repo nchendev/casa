@@ -1,43 +1,98 @@
 {
   "home": [
     {
+      "id": "chores",
       "name": "chores",
       "description": "chores module",
       "icon": "report_problem"
     },
     {
-      "name": "shared expenses",
+      "id": "sharedExpenditures",
+      "name": "Shared Expenses",
       "description": "shared expenses module",
       "icon": "report_problem"
     }
   ],
   "personal": [
     {
-      "name": "workout",
+      "id": "workout",
+      "name": "Workout",
       "description": "workout module",
       "icon": "report_problem"
     },
     {
-      "name": "cardio",
+      "id": "cardio",
+      "name": "Cardio",
       "description": "cardio module",
       "icon": "report_problem"
     }
   ],
   "social": [
     {
-      "name": "leaderboards",
+      "id": "leaderboards",
+      "name": "Leaderboards",
       "description": "leaderboards module",
       "icon": "report_problem"
     },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" },
-    { "name": "chat", "description": "chat module", "icon": "report_problem" }
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    },
+    {
+      "id": "chat",
+      "name": "chat",
+      "description": "chat module",
+      "icon": "report_problem"
+    }
   ]
 }

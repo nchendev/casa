@@ -1,16 +1,19 @@
-class ShopModule {
+class ModuleInfo {
+  String id;
   String name;
   String description;
   String icon;
 
-  ShopModule(this.name, this.description, this.icon);
+  ModuleInfo(this.id, this.name, this.description, this.icon);
 
-  ShopModule.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
+  ModuleInfo.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        name = json['name'],
         description = json['description'],
         icon = json['icon'];
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'name': name,
         'description': description,
         'icon': icon,

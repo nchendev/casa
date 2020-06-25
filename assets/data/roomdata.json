@@ -6,5 +6,10 @@
     { "name": "Leon Hua", "locationStatus": "away" },
     { "name": "Rohan Palla", "locationStatus": "disconnected" }
   ],
-  "modules": []
+  "modules": [
+    {
+      "name": "Shared Expenditures",
+      "id": "sharedExpenditures"
+    }
+  ]
 }
