@@ -27,22 +27,35 @@ class _HomeState extends State<Home> {
     return members;
   }
 
+  // builds modules info
+  Future<List<Module>> _buildModulesInfo() async {
+    List<Module> modules = [];
+    Map<String, dynamic> jsonData =
+        await LocalAPI().parseJsonFromAssets('assets/data/roomdata.json');
+    for (var module in jsonData['modules']) {
+      Module amodule = Module.fromJson(module);
+      modules.add(amodule);
+    }
+    return modules;
+  }
+
   // state declaration
   Future<List<Roommate>> _members;
-
+  Future<List<Module>> _modules;
   // state init
   @override
   void initState() {
     super.initState();
     _members = _buildRoomInfo();
+    _modules = _buildModulesInfo();
   }
 
   // builds the header widget. Line that says "Roommates"
-  Widget _buildRoommateCardHeader() {
+  Widget _buildCardHeader(title) {
     return Column(
       children: <Widget>[
         ListTile(
-          title: Text('Roommates',
+          title: Text(title,
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.w700)),
         ),
@@ -68,9 +81,9 @@ class _HomeState extends State<Home> {
     );
   }
 
-  List _buildRoommatesList(AsyncSnapshot snapshot) {
+  List<Widget> _buildRoommatesList(AsyncSnapshot snapshot) {
     List<Widget> listItems = List();
-
+    listItems.add(_buildCardHeader("Roommates"));
     for (int i = 0; i < snapshot.data.length; i++) {
       listItems.add(
         _buildRoommateCard(
@@ -83,30 +96,43 @@ class _HomeState extends State<Home> {
     return listItems;
   }
 
-  Widget _buildModulesList() {
-    return Column(
-      children: <Widget>[
-        // list of modules cards
-        Card(
-          child: InkWell(
-            splashColor: Colors.blue.withAlpha(30),
-            onTap: () {
-              print('Card tapped.');
-            },
-            child: Container(
-              width: 300,
-              height: 100,
-              child: Text('A card that can be tapped'),
-            ),
-          ),
-        )
-      ],
+  Widget _buildModuleContent(moduleName) {
+    return Placeholder(
+      fallbackHeight: 50,
+      color: Colors.red[100],
     );
+  }
+
+  Widget _buildModuleCard(moduleName) {
+    return Card(
+      elevation: 2,
+      margin: EdgeInsets.all(8.0),
+      child: Column(
+        children: <Widget>[
+          _buildCardHeader(moduleName),
+          _buildModuleContent(moduleName),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _buildModulesList(AsyncSnapshot snapshot) {
+    List<Widget> listItems = List();
+    for (int i = 0; i < snapshot.data.length; i++) {
+      listItems.add(
+        _buildModuleCard(
+          snapshot.data[i].name,
+        ),
+      );
+    }
+
+    return listItems;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[100],
       // future builder generates slivers
       body: FutureBuilder<List<Roommate>>(
         future: _members,
@@ -117,50 +143,63 @@ class _HomeState extends State<Home> {
           // once data is received
           if (snapshot.data != null) {
             roommatesSliver = SliverList(
-              delegate: SliverChildListDelegate(
-                _buildRoommatesList(snapshot),
-              ),
+              delegate: SliverChildListDelegate([
+                Card(
+                  margin: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
+                      ..._buildRoommatesList(snapshot),
+                    ],
+                  ),
+                )
+              ]),
             );
           }
 
           // while data is not received
           else {
             roommatesSliver = SliverToBoxAdapter(
-              child: CircularProgressIndicator(),
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
             );
           }
 
-          // the actual view being built
-          // TODO chain the future here when figuring out modules views
-          // ie return FutureBuilder<List<Modules>>() and put return customscrollview in there
-          return CustomScrollView(
-            slivers: <Widget>[
-              // roommates section header
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  child: Column(
-                    children: <Widget>[
-                      ListTile(
-                        title: Text('Roommates',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.w700)),
-                      ),
-                      Divider(),
-                    ],
+          // chain the futurebuilder for list of modules
+          return FutureBuilder<List<Module>>(
+            future: _modules,
+            // once ^ returns value
+            builder: (context, snapshot) {
+              Widget modulesSliver;
+
+              // once data is received
+              if (snapshot.data != null) {
+                modulesSliver = SliverList(
+                  delegate:
+                      SliverChildListDelegate(_buildModulesList(snapshot)),
+                );
+              }
+
+              // while data is not received
+              else {
+                modulesSliver = SliverToBoxAdapter(
+                  child: Center(
+                    child: CircularProgressIndicator(),
                   ),
-                ),
-              ),
+                );
+              }
 
-              // roommates sliver. Lists out all the roommates
-              roommatesSliver,
+              // generate the actual view
+              return CustomScrollView(
+                slivers: <Widget>[
+                  // roommates sliver.
+                  roommatesSliver,
 
-              // beginning of modules slivers
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  child: _buildModulesList(),
-                ),
-              ),
-            ],
+                  // beginning of modules slivers
+                  modulesSliver
+                ],
+              );
+            },
           );
         },
       ),

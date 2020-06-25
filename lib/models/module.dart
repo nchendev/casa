@@ -1,6 +1,3 @@
-import 'package:json_annotation/json_annotation.dart';
-
-@JsonSerializable()
 class ShopModule {
   String name;
   String description;
@@ -20,7 +17,6 @@ class ShopModule {
       };
 }
 
-@JsonSerializable()
 class Module {
   String name;
   String description;

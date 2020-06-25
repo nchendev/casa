@@ -1,7 +1,5 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:lowkey/models/module.dart';
 
-@JsonSerializable()
 class Roommate {
   String name;
   String locationStatus;
@@ -18,7 +16,6 @@ class Roommate {
       };
 }
 
-@JsonSerializable()
 class Room {
   String roomName;
   String roomLocation;
