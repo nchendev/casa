@@ -8,8 +8,8 @@
   ],
   "modules": [
     {
-      "name": "Shared Expenditures",
-      "id": "sharedExpenditures"
+      "id": "sharedExpenditures",
+      "name": "Shared Expenditures"
     }
   ]
 }

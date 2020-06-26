@@ -4,6 +4,7 @@ import 'package:lowkey/models/module.dart';
 import 'package:lowkey/models/room.dart';
 import 'package:lowkey/backend/local_api.dart';
 import 'package:lowkey/util/stringmap.dart';
+import 'package:lowkey/util/modulemap.dart';
 
 class Home extends StatefulWidget {
   final int selectedTab;
@@ -28,12 +29,13 @@ class _HomeState extends State<Home> {
   }
 
   // builds modules info
-  Future<List<Module>> _buildModulesInfo() async {
-    List<Module> modules = [];
+  Future<List<ModuleInfo>> _buildModulesInfo() async {
+    List<ModuleInfo> modules = [];
     Map<String, dynamic> jsonData =
         await LocalAPI().parseJsonFromAssets('assets/data/roomdata.json');
+
     for (var module in jsonData['modules']) {
-      Module amodule = Module.fromJson(module);
+      ModuleInfo amodule = ModuleInfo.fromJson(module);
       modules.add(amodule);
     }
     return modules;
@@ -41,7 +43,7 @@ class _HomeState extends State<Home> {
 
   // state declaration
   Future<List<Roommate>> _members;
-  Future<List<Module>> _modules;
+  Future<List<ModuleInfo>> _modules;
   // state init
   @override
   void initState() {
@@ -96,22 +98,29 @@ class _HomeState extends State<Home> {
     return listItems;
   }
 
-  Widget _buildModuleContent(moduleName) {
-    return Placeholder(
-      fallbackHeight: 50,
-      color: Colors.red[100],
-    );
+  Widget _buildModuleContent(moduleId) {
+    return ModuleMap().map()[moduleId + "Card"];
   }
 
-  Widget _buildModuleCard(moduleName) {
-    return Card(
-      elevation: 2,
-      margin: EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          _buildCardHeader(moduleName),
-          _buildModuleContent(moduleName),
-        ],
+  Widget _buildModuleCard(moduleId, moduleName) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (_) {
+          return ModuleMap().map()[moduleId + "Screen"];
+        }));
+      },
+      child: Hero(
+        tag: "moduleSelectionTag",
+        child: Card(
+          elevation: 2,
+          margin: EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              _buildCardHeader(moduleName),
+              _buildModuleContent(moduleId),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -120,9 +129,7 @@ class _HomeState extends State<Home> {
     List<Widget> listItems = List();
     for (int i = 0; i < snapshot.data.length; i++) {
       listItems.add(
-        _buildModuleCard(
-          snapshot.data[i].name,
-        ),
+        _buildModuleCard(snapshot.data[i].id, snapshot.data[i].name),
       );
     }
 
@@ -166,7 +173,7 @@ class _HomeState extends State<Home> {
           }
 
           // chain the futurebuilder for list of modules
-          return FutureBuilder<List<Module>>(
+          return FutureBuilder<List<ModuleInfo>>(
             future: _modules,
             // once ^ returns value
             builder: (context, snapshot) {
