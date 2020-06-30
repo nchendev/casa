@@ -1,262 +1,117 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:lowkey/screens/welcome.dart';
-import 'package:lowkey/screens/social.dart';
-import 'package:lowkey/screens/home.dart';
-import 'package:lowkey/screens/personal.dart';
-import 'package:lowkey/screens/sidebar.dart';
-import 'package:lowkey/screens/shop.dart';
-import 'package:lowkey/screens/about.dart';
-import 'package:lowkey/screens/settings.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.blue[300]),
-      //home: Welcome(),
-      home: Router(),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Colors.red,
+        // This makes the visual density adapt to the platform that you run
+        // the app on. For desktop platforms, the controls will be smaller and
+        // closer together (more dense) than on mobile platforms.
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class Router extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
   @override
-  _RouterState createState() => _RouterState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _RouterState extends State<Router> {
-  PageController _pageController;
-  int _selectedPageviewIndex = 0;
-  // shared variables
-  String _title = "Home";
-  List _titles = ["Home", "personal", "social"];
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController();
-  }
-
-  // pageview body widget
-  String _selectedBody = "main";
-  Widget _buildBody() {
-    switch (_selectedBody) {
-      case "main":
-        _pageController = PageController(initialPage: _selectedPageviewIndex);
-
-        return PageView(
-          controller: _pageController,
-          children: <Widget>[
-            Home(
-              selectedTab: _selectedPageviewIndex,
-            ),
-            personal(
-              selectedTab: _selectedPageviewIndex,
-            ),
-            social(
-              selectedTab: _selectedPageviewIndex,
-            ),
-          ],
-          onPageChanged: (page) {
-            setState(() {
-              _selectedPageviewIndex = page;
-              _title = _titles[_selectedPageviewIndex];
-            });
-          },
-        );
-      case "Shop!":
-        return Shop();
-      case "About":
-        return About();
-      case "Settings":
-        return Settings();
-    }
-  }
-
-  void _onTapBottomNavbar(int value) {
+  void _incrementCounter() {
     setState(() {
-      _selectedPageviewIndex = value;
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
     });
-    setState(() {
-      _selectedBody = "main";
-    });
-    setState(() {
-      _title = _titles[_selectedPageviewIndex];
-    });
-    if (_pageController.hasClients) {
-      _pageController.animateToPage(
-        value,
-        duration: const Duration(milliseconds: 400),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  List<Widget> _buildModules(List modules) {
-    List<Widget> list = new List<Widget>();
-    for (var i = 0; i < modules.length; i++) {
-      list.add(new ListTile(
-        title: Text(modules[i]['title']),
-        onTap: () {
-          // change route to module[i].path
-        },
-      ));
-    }
-    return list;
-  }
-
-  Widget _buildTile({IconData icon, String tileTitle}) {
-    return ListTile(
-      title: Row(
-        children: <Widget>[
-          Icon(icon),
-          Padding(
-            padding: EdgeInsets.only(left: 8.0),
-            child: Text(tileTitle),
-          )
-        ],
-      ),
-      onTap: () {
-        setState(() {
-          _selectedBody = tileTitle;
-          _title = tileTitle;
-        });
-        Navigator.pop(context);
-      }, // navigator routi,
-    );
-  }
-
-  ExpansionTile _buildExpansionTile(
-      {IconData icon, String tileTitle, List modules}) {
-    return ExpansionTile(
-      title: Row(children: <Widget>[
-        Icon(icon),
-        Padding(
-          padding: EdgeInsets.only(left: 8.0),
-          child: Text(tileTitle),
-        )
-      ]),
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: _buildModules(modules),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Drawer _buildDrawer() {
-    return Drawer(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                DrawerHeader(
-                  child: Text(
-                    "lowkey",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.blue[300],
-                  ),
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: ListView(
-              // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                // Home Widgets
-                _buildExpansionTile(
-                    icon: Icons.home,
-                    tileTitle: "Home Modules",
-                    modules: homeModules),
-                // personal Widgets
-                _buildExpansionTile(
-                    icon: Icons.person,
-                    tileTitle: "personal Modules",
-                    modules: personalModules),
-
-                // social Widgets
-                _buildExpansionTile(
-                    icon: Icons.people,
-                    tileTitle: "social Modules",
-                    modules: socialModules),
-              ],
-            ),
-          ),
-          Divider(),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                _buildTile(
-                  icon: Icons.shopping_cart,
-                  tileTitle: 'Shop!',
-                ),
-                _buildTile(
-                  icon: Icons.info,
-                  tileTitle: 'About',
-                ),
-                _buildTile(
-                  icon: Icons.settings,
-                  tileTitle: 'Settings',
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  BottomNavigationBar _buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          title: Text('personal'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.people),
-          title: Text('social'),
-        )
-      ],
-      onTap: _onTapBottomNavbar,
-      currentIndex: _selectedPageviewIndex,
-    );
   }
 
   @override
   Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            _title,
-          ),
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Invoke "debug painting" (press "p" in the console, choose the
+          // "Toggle Debug Paint" action from the Flutter Inspector in Android
+          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+          // to see the wireframe for each widget.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
         ),
-        body: _buildBody(),
-        drawer: _buildDrawer(),
-        bottomNavigationBar: _buildBottomNavigationBar());
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }
