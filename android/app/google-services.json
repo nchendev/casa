@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1037942478410",
-    "firebase_url": "https://lowkey-4b5f8.firebaseio.com",
-    "project_id": "lowkey-4b5f8",
-    "storage_bucket": "lowkey-4b5f8.appspot.com"
+    "project_number": "43715997549",
+    "firebase_url": "https://casa-app-project.firebaseio.com",
+    "project_id": "casa-app-project",
+    "storage_bucket": "casa-app-project.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1037942478410:android:947cd2c40b349e4ab9b8b3",
+        "mobilesdk_app_id": "1:43715997549:android:1cb4a2fe6b62749e837464",
         "android_client_info": {
           "package_name": "dev.nchen.casa"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1037942478410-vq47tnb74dgivo692ji3tsb5tlojbdl0.apps.googleusercontent.com",
+          "client_id": "43715997549-dtjvppdafislkshb5rinr646lvf6t0cm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "dev.nchen.casa",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "1037942478410-qt6eqo5ufo5ruvstvr1u9rsunhsit392.apps.googleusercontent.com",
+          "client_id": "43715997549-4t2mkbncqen7qrrh2iue4i2ja3tdjndv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCZGu88JAT0sQKUFeSTQGYg8vlA9guXzKU"
+          "current_key": "AIzaSyCUVe_iaidO6QU7aCyKKxPujMNzkMyvThs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1037942478410-qt6eqo5ufo5ruvstvr1u9rsunhsit392.apps.googleusercontent.com",
+              "client_id": "43715997549-4t2mkbncqen7qrrh2iue4i2ja3tdjndv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:lowkey/domain/core/failures.dart';
+import 'package:lowkey/domain/core/errors.dart';
 
 @immutable
 abstract class ValueObject<T> {
@@ -16,6 +17,11 @@ abstract class ValueObject<T> {
   }
 
   bool isValid() => value.isRight();
+
+  /// Throws [UnexpectedValueError] containing the [ValueFailure]
+  T getOrCrash() {
+    return value.fold((f) => throw UnexpectedValueError(f), (r) => r);
+  }
 
   @override
   bool operator ==(Object o) {
