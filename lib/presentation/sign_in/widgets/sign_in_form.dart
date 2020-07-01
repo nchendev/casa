@@ -2,7 +2,7 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lowkey/application/auth/sign_in_form/bloc/bloc/sign_in_form_bloc.dart';
+import 'package:lowkey/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:lowkey/utilities/constants.dart';
 
 class SignInForm extends StatelessWidget {

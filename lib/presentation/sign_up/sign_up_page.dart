@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lowkey/application/auth/sign_in_form/bloc/bloc/sign_in_form_bloc.dart';
+import 'package:lowkey/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:lowkey/presentation/sign_up/widgets/sign_up_form.dart';
 
 import '../../injection.dart';
