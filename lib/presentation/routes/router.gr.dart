@@ -9,13 +9,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:lowkey/presentation/splash/splash_page.dart';
 import 'package:lowkey/presentation/sign_in/sign_in_page.dart';
+import 'package:lowkey/presentation/sign_up/sign_up_page.dart';
+import 'package:lowkey/presentation/home/home_page.dart';
 
 abstract class Routes {
   static const splashPage = '/';
   static const signInPage = '/sign-in-page';
+  static const signUpPage = '/sign-up-page';
+  static const homePage = '/home-page';
   static const all = {
     splashPage,
     signInPage,
+    signUpPage,
+    homePage,
   };
 }
 
@@ -45,9 +51,36 @@ class Router extends RouterBase {
           return misTypedArgsRoute<SignInPageArguments>(args);
         }
         final typedArgs = args as SignInPageArguments ?? SignInPageArguments();
-        return MaterialPageRoute<dynamic>(
-          builder: (context) => SignInPage(key: typedArgs.key),
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              SignInPage(key: typedArgs.key),
           settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
+      case Routes.signUpPage:
+        if (hasInvalidArgs<SignUpPageArguments>(args)) {
+          return misTypedArgsRoute<SignUpPageArguments>(args);
+        }
+        final typedArgs = args as SignUpPageArguments ?? SignUpPageArguments();
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              SignUpPage(key: typedArgs.key),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
+        );
+      case Routes.homePage:
+        if (hasInvalidArgs<HomePageArguments>(args)) {
+          return misTypedArgsRoute<HomePageArguments>(args);
+        }
+        final typedArgs = args as HomePageArguments ?? HomePageArguments();
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              HomePage(key: typedArgs.key),
+          settings: settings,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          transitionDuration: const Duration(milliseconds: 200),
         );
       default:
         return unknownRoutePage(settings.name);
@@ -71,6 +104,18 @@ class SignInPageArguments {
   SignInPageArguments({this.key});
 }
 
+//SignUpPage arguments holder class
+class SignUpPageArguments {
+  final Key key;
+  SignUpPageArguments({this.key});
+}
+
+//HomePage arguments holder class
+class HomePageArguments {
+  final Key key;
+  HomePageArguments({this.key});
+}
+
 // *************************************************************************
 // Navigation helper methods extension
 // **************************************************************************
@@ -90,5 +135,21 @@ extension RouterNavigationHelperMethods on ExtendedNavigatorState {
       pushNamed(
         Routes.signInPage,
         arguments: SignInPageArguments(key: key),
+      );
+
+  Future pushSignUpPage({
+    Key key,
+  }) =>
+      pushNamed(
+        Routes.signUpPage,
+        arguments: SignUpPageArguments(key: key),
+      );
+
+  Future pushHomePage({
+    Key key,
+  }) =>
+      pushNamed(
+        Routes.homePage,
+        arguments: HomePageArguments(key: key),
       );
 }

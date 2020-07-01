@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lowkey/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:lowkey/presentation/routes/router.gr.dart';
 import 'package:lowkey/utilities/constants.dart';
 
 class SignInForm extends StatelessWidget {
@@ -204,7 +206,8 @@ class SignInForm extends StatelessWidget {
 
   Widget _buildSignUpBtn(BuildContext context) {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () =>
+          ExtendedNavigator.of(context).pushReplacementNamed(Routes.signUpPage),
       child: RichText(
         text: TextSpan(
           children: [
@@ -248,9 +251,8 @@ class SignInForm extends StatelessWidget {
                 ),
               ).show(context);
             },
-            (_) {
-              // TODO NAVIGATE
-            },
+            (_) => ExtendedNavigator.of(context)
+                .pushReplacementNamed(Routes.homePage),
           ),
         );
       },
