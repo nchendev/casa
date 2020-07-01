@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:lowkey/domain/core/failures.dart';
 import 'package:lowkey/domain/core/value_objects.dart';
 import 'package:lowkey/domain/core/value_validators.dart';
+import 'package:uuid/uuid.dart';
 
 class EmailAddress extends ValueObject<String> {
   @override
