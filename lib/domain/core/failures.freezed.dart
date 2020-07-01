@@ -15,26 +15,26 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result invalidEmail(@required T failedValue),
-    @required Result shortPassword(@required T failedValue),
+    @required Result invalidPassword(@required T failedValue),
   });
 
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(@required T failedValue),
-    Result shortPassword(@required T failedValue),
+    Result invalidPassword(@required T failedValue),
     @required Result orElse(),
   });
 
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result shortPassword(ShortPassword<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
   });
 
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
-    Result shortPassword(ShortPassword<T> value),
+    Result invalidPassword(ShortPassword<T> value),
     @required Result orElse(),
   });
 }
@@ -48,7 +48,7 @@ class _$ValueFailureTearOff {
     );
   }
 
-  ShortPassword<T> shortPassword<T>({@required T failedValue}) {
+  ShortPassword<T> invalidPassword<T>({@required T failedValue}) {
     return ShortPassword<T>(
       failedValue: failedValue,
     );
@@ -95,10 +95,10 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result invalidEmail(@required T failedValue),
-    @required Result shortPassword(@required T failedValue),
+    @required Result invalidPassword(@required T failedValue),
   }) {
     assert(invalidEmail != null);
-    assert(shortPassword != null);
+    assert(invalidPassword != null);
     return invalidEmail(failedValue);
   }
 
@@ -106,7 +106,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(@required T failedValue),
-    Result shortPassword(@required T failedValue),
+    Result invalidPassword(@required T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -120,10 +120,10 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result shortPassword(ShortPassword<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
   }) {
     assert(invalidEmail != null);
-    assert(shortPassword != null);
+    assert(invalidPassword != null);
     return invalidEmail(this);
   }
 
@@ -131,7 +131,7 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
-    Result shortPassword(ShortPassword<T> value),
+    Result invalidPassword(ShortPassword<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -161,7 +161,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 
   @override
   String toString() {
-    return 'ValueFailure<$T>.shortPassword(failedValue: $failedValue)';
+    return 'ValueFailure<$T>.invalidPassword(failedValue: $failedValue)';
   }
 
   @override
@@ -190,23 +190,23 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result invalidEmail(@required T failedValue),
-    @required Result shortPassword(@required T failedValue),
+    @required Result invalidPassword(@required T failedValue),
   }) {
     assert(invalidEmail != null);
-    assert(shortPassword != null);
-    return shortPassword(failedValue);
+    assert(invalidPassword != null);
+    return invalidPassword(failedValue);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(@required T failedValue),
-    Result shortPassword(@required T failedValue),
+    Result invalidPassword(@required T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (shortPassword != null) {
-      return shortPassword(failedValue);
+    if (invalidPassword != null) {
+      return invalidPassword(failedValue);
     }
     return orElse();
   }
@@ -215,23 +215,23 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result shortPassword(ShortPassword<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
   }) {
     assert(invalidEmail != null);
-    assert(shortPassword != null);
-    return shortPassword(this);
+    assert(invalidPassword != null);
+    return invalidPassword(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
-    Result shortPassword(ShortPassword<T> value),
+    Result invalidPassword(ShortPassword<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (shortPassword != null) {
-      return shortPassword(this);
+    if (invalidPassword != null) {
+      return invalidPassword(this);
     }
     return orElse();
   }
