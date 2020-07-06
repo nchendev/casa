@@ -4,8 +4,8 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lowkey/infrastructure/core/firebase_injectable_module.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lowkey/infrastructure/auth/firebase_auth_facade.dart';

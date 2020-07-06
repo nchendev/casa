@@ -7,40 +7,44 @@ part of 'failures.dart';
 // FreezedGenerator
 // **************************************************************************
 
-mixin _$ValueFailure<T> {
-  T get failedValue;
-
-  ValueFailure<T> copyWith({T failedValue});
-
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(@required T failedValue),
-    @required Result invalidPassword(@required T failedValue),
-  });
-
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(@required T failedValue),
-    Result invalidPassword(@required T failedValue),
-    @required Result orElse(),
-  });
-
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result invalidPassword(ShortPassword<T> value),
-  });
-
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result invalidPassword(ShortPassword<T> value),
-    @required Result orElse(),
-  });
-}
+T _$identity<T>(T value) => value;
 
 class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
+
+  ExceedingLength<T> exceedingLength<T>(
+      {@required T failedValue, @required int max}) {
+    return ExceedingLength<T>(
+      failedValue: failedValue,
+      max: max,
+    );
+  }
+
+  Empty<T> empty<T>({@required T failedValue}) {
+    return Empty<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  InvalidUser<T> invalidUser<T>({@required T failedValue}) {
+    return InvalidUser<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  ExceededRoommateLimit<T> exceededRoommateLimit<T>(
+      {@required T failedValue, @required int roommateLimit}) {
+    return ExceededRoommateLimit<T>(
+      failedValue: failedValue,
+      roommateLimit: roommateLimit,
+    );
+  }
+
+  NotOpenToRoomInvites<T> notOpenToRoomInvites<T>({@required T failedValue}) {
+    return NotOpenToRoomInvites<T>(
+      failedValue: failedValue,
+    );
+  }
 
   InvalidEmail<T> invalidEmail<T>({@required T failedValue}) {
     return InvalidEmail<T>(
@@ -55,7 +59,885 @@ class _$ValueFailureTearOff {
   }
 }
 
+// ignore: unused_element
 const $ValueFailure = _$ValueFailureTearOff();
+
+mixin _$ValueFailure<T> {
+  T get failedValue;
+
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(ShortPassword<T> value),
+    @required Result orElse(),
+  });
+
+  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
+}
+
+abstract class $ValueFailureCopyWith<T, $Res> {
+  factory $ValueFailureCopyWith(
+          ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
+      _$ValueFailureCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+class _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  _$ValueFailureCopyWithImpl(this._value, this._then);
+
+  final ValueFailure<T> _value;
+  // ignore: unused_field
+  final $Res Function(ValueFailure<T>) _then;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_value.copyWith(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+abstract class $ExceedingLengthCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $ExceedingLengthCopyWith(
+          ExceedingLength<T> value, $Res Function(ExceedingLength<T>) then) =
+      _$ExceedingLengthCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue, int max});
+}
+
+class _$ExceedingLengthCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ExceedingLengthCopyWith<T, $Res> {
+  _$ExceedingLengthCopyWithImpl(
+      ExceedingLength<T> _value, $Res Function(ExceedingLength<T>) _then)
+      : super(_value, (v) => _then(v as ExceedingLength<T>));
+
+  @override
+  ExceedingLength<T> get _value => super._value as ExceedingLength<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+    Object max = freezed,
+  }) {
+    return _then(ExceedingLength<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+      max: max == freezed ? _value.max : max as int,
+    ));
+  }
+}
+
+class _$ExceedingLength<T> implements ExceedingLength<T> {
+  const _$ExceedingLength({@required this.failedValue, @required this.max})
+      : assert(failedValue != null),
+        assert(max != null);
+
+  @override
+  final T failedValue;
+  @override
+  final int max;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.exceedingLength(failedValue: $failedValue, max: $max)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ExceedingLength<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)) &&
+            (identical(other.max, max) ||
+                const DeepCollectionEquality().equals(other.max, max)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failedValue) ^
+      const DeepCollectionEquality().hash(max);
+
+  @override
+  $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith =>
+      _$ExceedingLengthCopyWithImpl<T, ExceedingLength<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return exceedingLength(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (exceedingLength != null) {
+      return exceedingLength(failedValue, max);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return exceedingLength(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(ShortPassword<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (exceedingLength != null) {
+      return exceedingLength(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ExceedingLength<T> implements ValueFailure<T> {
+  const factory ExceedingLength({@required T failedValue, @required int max}) =
+      _$ExceedingLength<T>;
+
+  @override
+  T get failedValue;
+  int get max;
+  @override
+  $ExceedingLengthCopyWith<T, ExceedingLength<T>> get copyWith;
+}
+
+abstract class $EmptyCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $EmptyCopyWith(Empty<T> value, $Res Function(Empty<T>) then) =
+      _$EmptyCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $EmptyCopyWith<T, $Res> {
+  _$EmptyCopyWithImpl(Empty<T> _value, $Res Function(Empty<T>) _then)
+      : super(_value, (v) => _then(v as Empty<T>));
+
+  @override
+  Empty<T> get _value => super._value as Empty<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(Empty<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$Empty<T> implements Empty<T> {
+  const _$Empty({@required this.failedValue}) : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.empty(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Empty<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $EmptyCopyWith<T, Empty<T>> get copyWith =>
+      _$EmptyCopyWithImpl<T, Empty<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return empty(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (empty != null) {
+      return empty(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(ShortPassword<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Empty<T> implements ValueFailure<T> {
+  const factory Empty({@required T failedValue}) = _$Empty<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $EmptyCopyWith<T, Empty<T>> get copyWith;
+}
+
+abstract class $InvalidUserCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidUserCopyWith(
+          InvalidUser<T> value, $Res Function(InvalidUser<T>) then) =
+      _$InvalidUserCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$InvalidUserCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidUserCopyWith<T, $Res> {
+  _$InvalidUserCopyWithImpl(
+      InvalidUser<T> _value, $Res Function(InvalidUser<T>) _then)
+      : super(_value, (v) => _then(v as InvalidUser<T>));
+
+  @override
+  InvalidUser<T> get _value => super._value as InvalidUser<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidUser<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$InvalidUser<T> implements InvalidUser<T> {
+  const _$InvalidUser({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidUser(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is InvalidUser<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $InvalidUserCopyWith<T, InvalidUser<T>> get copyWith =>
+      _$InvalidUserCopyWithImpl<T, InvalidUser<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return invalidUser(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidUser != null) {
+      return invalidUser(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return invalidUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(ShortPassword<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (invalidUser != null) {
+      return invalidUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidUser<T> implements ValueFailure<T> {
+  const factory InvalidUser({@required T failedValue}) = _$InvalidUser<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $InvalidUserCopyWith<T, InvalidUser<T>> get copyWith;
+}
+
+abstract class $ExceededRoommateLimitCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $ExceededRoommateLimitCopyWith(ExceededRoommateLimit<T> value,
+          $Res Function(ExceededRoommateLimit<T>) then) =
+      _$ExceededRoommateLimitCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue, int roommateLimit});
+}
+
+class _$ExceededRoommateLimitCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ExceededRoommateLimitCopyWith<T, $Res> {
+  _$ExceededRoommateLimitCopyWithImpl(ExceededRoommateLimit<T> _value,
+      $Res Function(ExceededRoommateLimit<T>) _then)
+      : super(_value, (v) => _then(v as ExceededRoommateLimit<T>));
+
+  @override
+  ExceededRoommateLimit<T> get _value =>
+      super._value as ExceededRoommateLimit<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+    Object roommateLimit = freezed,
+  }) {
+    return _then(ExceededRoommateLimit<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+      roommateLimit: roommateLimit == freezed
+          ? _value.roommateLimit
+          : roommateLimit as int,
+    ));
+  }
+}
+
+class _$ExceededRoommateLimit<T> implements ExceededRoommateLimit<T> {
+  const _$ExceededRoommateLimit(
+      {@required this.failedValue, @required this.roommateLimit})
+      : assert(failedValue != null),
+        assert(roommateLimit != null);
+
+  @override
+  final T failedValue;
+  @override
+  final int roommateLimit;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.exceededRoommateLimit(failedValue: $failedValue, roommateLimit: $roommateLimit)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ExceededRoommateLimit<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)) &&
+            (identical(other.roommateLimit, roommateLimit) ||
+                const DeepCollectionEquality()
+                    .equals(other.roommateLimit, roommateLimit)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failedValue) ^
+      const DeepCollectionEquality().hash(roommateLimit);
+
+  @override
+  $ExceededRoommateLimitCopyWith<T, ExceededRoommateLimit<T>> get copyWith =>
+      _$ExceededRoommateLimitCopyWithImpl<T, ExceededRoommateLimit<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return exceededRoommateLimit(failedValue, roommateLimit);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (exceededRoommateLimit != null) {
+      return exceededRoommateLimit(failedValue, roommateLimit);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return exceededRoommateLimit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(ShortPassword<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (exceededRoommateLimit != null) {
+      return exceededRoommateLimit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ExceededRoommateLimit<T> implements ValueFailure<T> {
+  const factory ExceededRoommateLimit(
+      {@required T failedValue,
+      @required int roommateLimit}) = _$ExceededRoommateLimit<T>;
+
+  @override
+  T get failedValue;
+  int get roommateLimit;
+  @override
+  $ExceededRoommateLimitCopyWith<T, ExceededRoommateLimit<T>> get copyWith;
+}
+
+abstract class $NotOpenToRoomInvitesCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $NotOpenToRoomInvitesCopyWith(NotOpenToRoomInvites<T> value,
+          $Res Function(NotOpenToRoomInvites<T>) then) =
+      _$NotOpenToRoomInvitesCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$NotOpenToRoomInvitesCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $NotOpenToRoomInvitesCopyWith<T, $Res> {
+  _$NotOpenToRoomInvitesCopyWithImpl(NotOpenToRoomInvites<T> _value,
+      $Res Function(NotOpenToRoomInvites<T>) _then)
+      : super(_value, (v) => _then(v as NotOpenToRoomInvites<T>));
+
+  @override
+  NotOpenToRoomInvites<T> get _value => super._value as NotOpenToRoomInvites<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(NotOpenToRoomInvites<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$NotOpenToRoomInvites<T> implements NotOpenToRoomInvites<T> {
+  const _$NotOpenToRoomInvites({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.notOpenToRoomInvites(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is NotOpenToRoomInvites<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $NotOpenToRoomInvitesCopyWith<T, NotOpenToRoomInvites<T>> get copyWith =>
+      _$NotOpenToRoomInvitesCopyWithImpl<T, NotOpenToRoomInvites<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return notOpenToRoomInvites(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (notOpenToRoomInvites != null) {
+      return notOpenToRoomInvites(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result invalidPassword(ShortPassword<T> value),
+  }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
+    assert(invalidEmail != null);
+    assert(invalidPassword != null);
+    return notOpenToRoomInvites(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
+    Result invalidEmail(InvalidEmail<T> value),
+    Result invalidPassword(ShortPassword<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (notOpenToRoomInvites != null) {
+      return notOpenToRoomInvites(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotOpenToRoomInvites<T> implements ValueFailure<T> {
+  const factory NotOpenToRoomInvites({@required T failedValue}) =
+      _$NotOpenToRoomInvites<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $NotOpenToRoomInvitesCopyWith<T, NotOpenToRoomInvites<T>> get copyWith;
+}
+
+abstract class $InvalidEmailCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidEmailCopyWith(
+          InvalidEmail<T> value, $Res Function(InvalidEmail<T>) then) =
+      _$InvalidEmailCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$InvalidEmailCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidEmailCopyWith<T, $Res> {
+  _$InvalidEmailCopyWithImpl(
+      InvalidEmail<T> _value, $Res Function(InvalidEmail<T>) _then)
+      : super(_value, (v) => _then(v as InvalidEmail<T>));
+
+  @override
+  InvalidEmail<T> get _value => super._value as InvalidEmail<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidEmail<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
 
 class _$InvalidEmail<T> implements InvalidEmail<T> {
   const _$InvalidEmail({@required this.failedValue})
@@ -83,20 +965,25 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
   @override
-  _$InvalidEmail<T> copyWith({
-    Object failedValue = freezed,
-  }) {
-    return _$InvalidEmail<T>(
-      failedValue: failedValue == freezed ? this.failedValue : failedValue as T,
-    );
-  }
+  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
+      _$InvalidEmailCopyWithImpl<T, InvalidEmail<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result invalidEmail(@required T failedValue),
-    @required Result invalidPassword(@required T failedValue),
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
   }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     return invalidEmail(failedValue);
@@ -105,8 +992,13 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result invalidEmail(@required T failedValue),
-    Result invalidPassword(@required T failedValue),
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -119,9 +1011,19 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(ShortPassword<T> value),
   }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     return invalidEmail(this);
@@ -130,6 +1032,11 @@ class _$InvalidEmail<T> implements InvalidEmail<T> {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(ShortPassword<T> value),
     @required Result orElse(),
@@ -147,9 +1054,38 @@ abstract class InvalidEmail<T> implements ValueFailure<T> {
 
   @override
   T get failedValue;
+  @override
+  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
+}
+
+abstract class $ShortPasswordCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $ShortPasswordCopyWith(
+          ShortPassword<T> value, $Res Function(ShortPassword<T>) then) =
+      _$ShortPasswordCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$ShortPasswordCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ShortPasswordCopyWith<T, $Res> {
+  _$ShortPasswordCopyWithImpl(
+      ShortPassword<T> _value, $Res Function(ShortPassword<T>) _then)
+      : super(_value, (v) => _then(v as ShortPassword<T>));
 
   @override
-  InvalidEmail<T> copyWith({T failedValue});
+  ShortPassword<T> get _value => super._value as ShortPassword<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(ShortPassword<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
 }
 
 class _$ShortPassword<T> implements ShortPassword<T> {
@@ -178,20 +1114,25 @@ class _$ShortPassword<T> implements ShortPassword<T> {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
   @override
-  _$ShortPassword<T> copyWith({
-    Object failedValue = freezed,
-  }) {
-    return _$ShortPassword<T>(
-      failedValue: failedValue == freezed ? this.failedValue : failedValue as T,
-    );
-  }
+  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
+      _$ShortPasswordCopyWithImpl<T, ShortPassword<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result invalidEmail(@required T failedValue),
-    @required Result invalidPassword(@required T failedValue),
+    @required Result exceedingLength(T failedValue, int max),
+    @required Result empty(T failedValue),
+    @required Result invalidUser(T failedValue),
+    @required Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    @required Result notOpenToRoomInvites(T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result invalidPassword(T failedValue),
   }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     return invalidPassword(failedValue);
@@ -200,8 +1141,13 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result invalidEmail(@required T failedValue),
-    Result invalidPassword(@required T failedValue),
+    Result exceedingLength(T failedValue, int max),
+    Result empty(T failedValue),
+    Result invalidUser(T failedValue),
+    Result exceededRoommateLimit(T failedValue, int roommateLimit),
+    Result notOpenToRoomInvites(T failedValue),
+    Result invalidEmail(T failedValue),
+    Result invalidPassword(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -214,9 +1160,19 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result exceedingLength(ExceedingLength<T> value),
+    @required Result empty(Empty<T> value),
+    @required Result invalidUser(InvalidUser<T> value),
+    @required Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    @required Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result invalidPassword(ShortPassword<T> value),
   }) {
+    assert(exceedingLength != null);
+    assert(empty != null);
+    assert(invalidUser != null);
+    assert(exceededRoommateLimit != null);
+    assert(notOpenToRoomInvites != null);
     assert(invalidEmail != null);
     assert(invalidPassword != null);
     return invalidPassword(this);
@@ -225,6 +1181,11 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result exceedingLength(ExceedingLength<T> value),
+    Result empty(Empty<T> value),
+    Result invalidUser(InvalidUser<T> value),
+    Result exceededRoommateLimit(ExceededRoommateLimit<T> value),
+    Result notOpenToRoomInvites(NotOpenToRoomInvites<T> value),
     Result invalidEmail(InvalidEmail<T> value),
     Result invalidPassword(ShortPassword<T> value),
     @required Result orElse(),
@@ -242,7 +1203,6 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
 
   @override
   T get failedValue;
-
   @override
-  ShortPassword<T> copyWith({T failedValue});
+  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;
 }
