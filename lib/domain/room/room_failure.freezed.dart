@@ -27,6 +27,10 @@ class _$RoomFailureTearOff {
   _UnableToDeleteRoom unableToDeleteRoom() {
     return const _UnableToDeleteRoom();
   }
+
+  _UnableToLeaveRoom unableToLeaveRoom() {
+    return const _UnableToLeaveRoom();
+  }
 }
 
 // ignore: unused_element
@@ -39,6 +43,7 @@ mixin _$RoomFailure {
     @required Result insufficientPermissions(),
     @required Result unableToJoinRoom(),
     @required Result unableToDeleteRoom(),
+    @required Result unableToLeaveRoom(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -46,6 +51,7 @@ mixin _$RoomFailure {
     Result insufficientPermissions(),
     Result unableToJoinRoom(),
     Result unableToDeleteRoom(),
+    Result unableToLeaveRoom(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -54,6 +60,7 @@ mixin _$RoomFailure {
     @required Result insufficientPermissions(_InsufficientPermissions value),
     @required Result unableToJoinRoom(_UnableToJoinRoom value),
     @required Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    @required Result unableToLeaveRoom(_UnableToLeaveRoom value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -61,6 +68,7 @@ mixin _$RoomFailure {
     Result insufficientPermissions(_InsufficientPermissions value),
     Result unableToJoinRoom(_UnableToJoinRoom value),
     Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    Result unableToLeaveRoom(_UnableToLeaveRoom value),
     @required Result orElse(),
   });
 }
@@ -118,11 +126,13 @@ class _$_Unexpected implements _Unexpected {
     @required Result insufficientPermissions(),
     @required Result unableToJoinRoom(),
     @required Result unableToDeleteRoom(),
+    @required Result unableToLeaveRoom(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return unexpected();
   }
 
@@ -133,6 +143,7 @@ class _$_Unexpected implements _Unexpected {
     Result insufficientPermissions(),
     Result unableToJoinRoom(),
     Result unableToDeleteRoom(),
+    Result unableToLeaveRoom(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -149,11 +160,13 @@ class _$_Unexpected implements _Unexpected {
     @required Result insufficientPermissions(_InsufficientPermissions value),
     @required Result unableToJoinRoom(_UnableToJoinRoom value),
     @required Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    @required Result unableToLeaveRoom(_UnableToLeaveRoom value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return unexpected(this);
   }
 
@@ -164,6 +177,7 @@ class _$_Unexpected implements _Unexpected {
     Result insufficientPermissions(_InsufficientPermissions value),
     Result unableToJoinRoom(_UnableToJoinRoom value),
     Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    Result unableToLeaveRoom(_UnableToLeaveRoom value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -219,11 +233,13 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
     @required Result insufficientPermissions(),
     @required Result unableToJoinRoom(),
     @required Result unableToDeleteRoom(),
+    @required Result unableToLeaveRoom(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return insufficientPermissions();
   }
 
@@ -234,6 +250,7 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
     Result insufficientPermissions(),
     Result unableToJoinRoom(),
     Result unableToDeleteRoom(),
+    Result unableToLeaveRoom(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -250,11 +267,13 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
     @required Result insufficientPermissions(_InsufficientPermissions value),
     @required Result unableToJoinRoom(_UnableToJoinRoom value),
     @required Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    @required Result unableToLeaveRoom(_UnableToLeaveRoom value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return insufficientPermissions(this);
   }
 
@@ -265,6 +284,7 @@ class _$_InsufficientPermissions implements _InsufficientPermissions {
     Result insufficientPermissions(_InsufficientPermissions value),
     Result unableToJoinRoom(_UnableToJoinRoom value),
     Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    Result unableToLeaveRoom(_UnableToLeaveRoom value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -319,11 +339,13 @@ class _$_UnableToJoinRoom implements _UnableToJoinRoom {
     @required Result insufficientPermissions(),
     @required Result unableToJoinRoom(),
     @required Result unableToDeleteRoom(),
+    @required Result unableToLeaveRoom(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return unableToJoinRoom();
   }
 
@@ -334,6 +356,7 @@ class _$_UnableToJoinRoom implements _UnableToJoinRoom {
     Result insufficientPermissions(),
     Result unableToJoinRoom(),
     Result unableToDeleteRoom(),
+    Result unableToLeaveRoom(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -350,11 +373,13 @@ class _$_UnableToJoinRoom implements _UnableToJoinRoom {
     @required Result insufficientPermissions(_InsufficientPermissions value),
     @required Result unableToJoinRoom(_UnableToJoinRoom value),
     @required Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    @required Result unableToLeaveRoom(_UnableToLeaveRoom value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return unableToJoinRoom(this);
   }
 
@@ -365,6 +390,7 @@ class _$_UnableToJoinRoom implements _UnableToJoinRoom {
     Result insufficientPermissions(_InsufficientPermissions value),
     Result unableToJoinRoom(_UnableToJoinRoom value),
     Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    Result unableToLeaveRoom(_UnableToLeaveRoom value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -419,11 +445,13 @@ class _$_UnableToDeleteRoom implements _UnableToDeleteRoom {
     @required Result insufficientPermissions(),
     @required Result unableToJoinRoom(),
     @required Result unableToDeleteRoom(),
+    @required Result unableToLeaveRoom(),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return unableToDeleteRoom();
   }
 
@@ -434,6 +462,7 @@ class _$_UnableToDeleteRoom implements _UnableToDeleteRoom {
     Result insufficientPermissions(),
     Result unableToJoinRoom(),
     Result unableToDeleteRoom(),
+    Result unableToLeaveRoom(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -450,11 +479,13 @@ class _$_UnableToDeleteRoom implements _UnableToDeleteRoom {
     @required Result insufficientPermissions(_InsufficientPermissions value),
     @required Result unableToJoinRoom(_UnableToJoinRoom value),
     @required Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    @required Result unableToLeaveRoom(_UnableToLeaveRoom value),
   }) {
     assert(unexpected != null);
     assert(insufficientPermissions != null);
     assert(unableToJoinRoom != null);
     assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
     return unableToDeleteRoom(this);
   }
 
@@ -465,6 +496,7 @@ class _$_UnableToDeleteRoom implements _UnableToDeleteRoom {
     Result insufficientPermissions(_InsufficientPermissions value),
     Result unableToJoinRoom(_UnableToJoinRoom value),
     Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    Result unableToLeaveRoom(_UnableToLeaveRoom value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -477,4 +509,110 @@ class _$_UnableToDeleteRoom implements _UnableToDeleteRoom {
 
 abstract class _UnableToDeleteRoom implements RoomFailure {
   const factory _UnableToDeleteRoom() = _$_UnableToDeleteRoom;
+}
+
+abstract class _$UnableToLeaveRoomCopyWith<$Res> {
+  factory _$UnableToLeaveRoomCopyWith(
+          _UnableToLeaveRoom value, $Res Function(_UnableToLeaveRoom) then) =
+      __$UnableToLeaveRoomCopyWithImpl<$Res>;
+}
+
+class __$UnableToLeaveRoomCopyWithImpl<$Res>
+    extends _$RoomFailureCopyWithImpl<$Res>
+    implements _$UnableToLeaveRoomCopyWith<$Res> {
+  __$UnableToLeaveRoomCopyWithImpl(
+      _UnableToLeaveRoom _value, $Res Function(_UnableToLeaveRoom) _then)
+      : super(_value, (v) => _then(v as _UnableToLeaveRoom));
+
+  @override
+  _UnableToLeaveRoom get _value => super._value as _UnableToLeaveRoom;
+}
+
+class _$_UnableToLeaveRoom implements _UnableToLeaveRoom {
+  const _$_UnableToLeaveRoom();
+
+  @override
+  String toString() {
+    return 'RoomFailure.unableToLeaveRoom()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _UnableToLeaveRoom);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result unexpected(),
+    @required Result insufficientPermissions(),
+    @required Result unableToJoinRoom(),
+    @required Result unableToDeleteRoom(),
+    @required Result unableToLeaveRoom(),
+  }) {
+    assert(unexpected != null);
+    assert(insufficientPermissions != null);
+    assert(unableToJoinRoom != null);
+    assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
+    return unableToLeaveRoom();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result unexpected(),
+    Result insufficientPermissions(),
+    Result unableToJoinRoom(),
+    Result unableToDeleteRoom(),
+    Result unableToLeaveRoom(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (unableToLeaveRoom != null) {
+      return unableToLeaveRoom();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result unexpected(_Unexpected value),
+    @required Result insufficientPermissions(_InsufficientPermissions value),
+    @required Result unableToJoinRoom(_UnableToJoinRoom value),
+    @required Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    @required Result unableToLeaveRoom(_UnableToLeaveRoom value),
+  }) {
+    assert(unexpected != null);
+    assert(insufficientPermissions != null);
+    assert(unableToJoinRoom != null);
+    assert(unableToDeleteRoom != null);
+    assert(unableToLeaveRoom != null);
+    return unableToLeaveRoom(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result unexpected(_Unexpected value),
+    Result insufficientPermissions(_InsufficientPermissions value),
+    Result unableToJoinRoom(_UnableToJoinRoom value),
+    Result unableToDeleteRoom(_UnableToDeleteRoom value),
+    Result unableToLeaveRoom(_UnableToLeaveRoom value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (unableToLeaveRoom != null) {
+      return unableToLeaveRoom(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnableToLeaveRoom implements RoomFailure {
+  const factory _UnableToLeaveRoom() = _$_UnableToLeaveRoom;
 }

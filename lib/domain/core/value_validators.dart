@@ -3,6 +3,30 @@ import 'package:kt_dart/kt.dart';
 import 'package:lowkey/domain/auth/value_objects.dart';
 import 'package:lowkey/domain/core/failures.dart';
 
+Either<ValueFailure<String>, String> validateRoom(String input) {
+  // check if room exists in the database
+  // TODO: ..., for now just accept
+  if (true) {
+    return right(input);
+  } else {
+    return left(
+      ValueFailure.invalidRoom(failedValue: input),
+    );
+  }
+}
+
+Either<ValueFailure<KtList<T>>, KtList<T>> validateRoomLimit<T>(
+    KtList<T> input, int roomLimit) {
+  // check to make sure user can still add room
+  if (input.size < roomLimit) {
+    return right(input);
+  } else {
+    return left(
+      ValueFailure.exceededRoomLimit(failedValue: input, roomLimit: roomLimit),
+    );
+  }
+}
+
 Either<ValueFailure<String>, String> validateMaxStringLength(
   String input,
   int maxLength,

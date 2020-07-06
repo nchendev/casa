@@ -9,4 +9,5 @@ abstract class RoomFailure with _$RoomFailure {
       _InsufficientPermissions;
   const factory RoomFailure.unableToJoinRoom() = _UnableToJoinRoom;
   const factory RoomFailure.unableToDeleteRoom() = _UnableToDeleteRoom;
+  const factory RoomFailure.unableToLeaveRoom() = _UnableToLeaveRoom;
 }

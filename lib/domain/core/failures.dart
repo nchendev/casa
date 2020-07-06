@@ -4,6 +4,16 @@ part 'failures.freezed.dart';
 
 @freezed
 abstract class ValueFailure<T> with _$ValueFailure<T> {
+  // target room doesn't exist
+  const factory ValueFailure.invalidRoom({
+    @required T failedValue,
+  }) = InvalidRoom<T>;
+  // at room limit
+  const factory ValueFailure.exceededRoomLimit({
+    @required T failedValue,
+    @required int roomLimit,
+  }) = ExceededRoomLimit<T>;
+
   const factory ValueFailure.exceedingLength({
     @required T failedValue,
     @required int max,
