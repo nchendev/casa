@@ -10,8 +10,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lowkey/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:lowkey/domain/auth/i_auth_facade.dart';
-import 'package:lowkey/application/room/room_actor/room_actor_bloc.dart';
+import 'package:lowkey/infrastructure/room/room_repository.dart';
 import 'package:lowkey/domain/room/i_room_repository.dart';
+import 'package:lowkey/application/room/room_actor/room_actor_bloc.dart';
 import 'package:lowkey/application/room/room_watcher/room_watcher_bloc.dart';
 import 'package:lowkey/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'package:lowkey/application/auth/auth_bloc.dart';
@@ -26,6 +27,8 @@ void $initGetIt(GetIt g, {String environment}) {
       () => firebaseInjectableModule.googleSignIn);
   g.registerLazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(g<FirebaseAuth>(), g<GoogleSignIn>()));
+  g.registerLazySingleton<IRoomRepository>(
+      () => RoomRepository(g<Firestore>()));
   g.registerFactory<RoomActorBloc>(() => RoomActorBloc(g<IRoomRepository>()));
   g.registerFactory<RoomWatcherBloc>(
       () => RoomWatcherBloc(g<IRoomRepository>()));
