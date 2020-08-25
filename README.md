@@ -1,5 +1,5 @@
 # Introduction
-Lowkey is a cross-Platform iOS/Android application providing useful tools for communities of people living together
+Casa is a cross-Platform iOS/Android application providing useful tools for communities of people living together
 
 This project is currently still in development. Currently there is a massive overhaul of architectural and design patterns in the ddd branch 
 
